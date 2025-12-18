@@ -11,7 +11,7 @@ function Pending() {
   const fetchPending = async () => {
     try {
       const res = await axios.get(
-        "https://courson.up.railway.app/api/admin/pending",
+        "http://localhost:5000/api/admin/pending",
         {
           headers: {
             Authorization: `Bearer ${getToken()}`

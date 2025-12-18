@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../../includes/Sidebar";
+import SideBar from "../../components/SideBar";
 import Header from "../../includes/Header";
 import axios from "axios";
 import { getToken } from "../../utils/auth";
@@ -11,7 +11,7 @@ function Users() {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        "https://courson.up.railway.app/api/admin/users",
+        "http://localhost:5000/api/admin/users",
         {
           headers: {
             Authorization: `Bearer ${getToken()}`
@@ -39,7 +39,7 @@ function Users() {
       data-sidebar-position="fixed"
       data-header-position="fixed"
     >
-      <Sidebar />
+      <SideBar />
 
       <div className="body-wrapper">
         <Header />

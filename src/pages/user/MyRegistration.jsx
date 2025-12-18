@@ -11,7 +11,7 @@ function MyRegistration() {
   const fetchMyCourses = async () => {
     try {
       const res = await axios.get(
-        "https://courson.up.railway.app/api/courses/my",
+        "http://localhost:5000/api/courses/my",
         {
           headers: { Authorization: `Bearer ${getToken()}` }
         }
