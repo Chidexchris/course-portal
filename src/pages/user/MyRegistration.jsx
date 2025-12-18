@@ -11,7 +11,7 @@ function MyRegistration() {
   const fetchMyCourses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/courses/my",
+        "https://courson.up.railway.app/api/courses/my",
         {
           headers: { Authorization: `Bearer ${getToken()}` }
         }
@@ -28,7 +28,7 @@ function MyRegistration() {
     if (!window.confirm("Drop this course?")) return;
 
     await axios.delete(
-      `http://localhost:5000/api/courses/${id}/drop`,
+      `https://courson.up.railway.app/api/courses/${id}/drop`,
       {
         headers: { Authorization: `Bearer ${getToken()}` }
       }

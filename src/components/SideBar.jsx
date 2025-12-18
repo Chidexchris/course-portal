@@ -53,7 +53,7 @@ function Sidebar() {
                   </div>
                 </Link>
                 <ul aria-expanded="false" className="collapse first-level">
-                  <li className="sidebar-item">
+                  {/* <li className="sidebar-item">
                     <Link
                       className="sidebar-link justify-content-between"
                       to="/admin/registered"
@@ -65,7 +65,7 @@ function Sidebar() {
                         <span className="hide-menu">Registrated</span>
                       </div>
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="sidebar-item">
                     <Link
                       className="sidebar-link justify-content-between"

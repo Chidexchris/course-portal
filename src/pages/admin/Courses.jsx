@@ -18,7 +18,7 @@ function Courses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/courses", {
+        const res = await fetch("https://courson.up.railway.app/api/courses", {
           headers: {
             Authorization: `Bearer ${getToken()}`
           }
@@ -47,7 +47,7 @@ function Courses() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/admin/courses", {
+      const res = await fetch("https://courson.up.railway.app/api/admin/courses", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

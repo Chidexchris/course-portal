@@ -11,7 +11,7 @@ function Users() {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/users",
+        "https://courson.up.railway.app/api/admin/users",
         {
           headers: {
             Authorization: `Bearer ${getToken()}`

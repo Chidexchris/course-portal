@@ -11,7 +11,7 @@ function Pending() {
   const fetchPending = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/pending",
+        "https://courson.up.railway.app/api/admin/pending",
         {
           headers: {
             Authorization: `Bearer ${getToken()}`
@@ -29,7 +29,7 @@ function Pending() {
   const approveCourse = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/approve/${id}`,
+        `https://courson.up.railway.app/api/admin/approve/${id}`,
         {},
         {
           headers: {
