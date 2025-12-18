@@ -11,11 +11,9 @@ function MyRegistration() {
   const fetchMyCourses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/registrations/my",
+        "http://localhost:5000/api/courses/my",
         {
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
+          headers: { Authorization: `Bearer ${getToken()}` }
         }
       );
       setCourses(res.data);
@@ -30,11 +28,9 @@ function MyRegistration() {
     if (!window.confirm("Drop this course?")) return;
 
     await axios.delete(
-      `http://localhost:5000/api/registrations/${id}`,
+      `http://localhost:5000/api/courses/${id}/drop`,
       {
-        headers: {
-          Authorization: `Bearer ${getToken()}`
-        }
+        headers: { Authorization: `Bearer ${getToken()}` }
       }
     );
 
@@ -45,19 +41,14 @@ function MyRegistration() {
     fetchMyCourses();
   }, []);
 
-  
   return (
-    <>
-      <div className="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
-        data-sidebar-position="fixed" data-header-position="fixed">
-        <Sidebar />
-
-        <div className="body-wrapper">
-          <Header />
-
-          <div class="body-wrapper-inner" >
-            <div className="container-fluid">
-              <h4 className="mb-3">My Registered Courses</h4>
+    <div className="page-wrapper"id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+        data-sidebar-position="fixed" data-header-position="fixed" > 
+      <Sidebar />
+      <div className="body-wrapper">
+        <Header />
+        <div className="container-fluid">
+          <h4>My Registered Courses</h4>
 
           {loading ? (
             <p>Loading...</p>
@@ -73,7 +64,6 @@ function MyRegistration() {
                   <th>Action</th>
                 </tr>
               </thead>
-
               <tbody>
                 {courses.length === 0 ? (
                   <tr>
@@ -89,13 +79,7 @@ function MyRegistration() {
                       <td>{c.title}</td>
                       <td>{c.unit}</td>
                       <td>
-                        <span
-                          className={`badge ${
-                            c.status === "approved"
-                              ? "bg-success"
-                              : "bg-warning"
-                          }`}
-                        >
+                        <span className={`badge ${c.status === "approved" ? "bg-success" : "bg-warning"}`}>
                           {c.status}
                         </span>
                       </td>
@@ -113,12 +97,10 @@ function MyRegistration() {
               </tbody>
             </table>
           )}
-            </div>
-          </div>
+        </div>
       </div>
-    </div >
-    </>
-  )
+    </div>
+  );
 }
 
-export default MyRegistration
+export default MyRegistration;

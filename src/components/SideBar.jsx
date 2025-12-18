@@ -99,7 +99,7 @@ function Sidebar() {
               <li className="sidebar-item">
                 <Link
                   className="sidebar-link justify-content-between"
-                  to="/MyRegistration"
+                  to="/admin/students"
                 >
                   <div className="d-flex align-items-center gap-3">
                     <span className="d-flex">

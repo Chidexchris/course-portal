@@ -39,4 +39,31 @@ router.put("/approve/:id", auth, adminOnly, async (req, res) => {
   res.json({ message: "Approved" });
 });
 
+
+/**
+ * GET ALL USERS WITH COURSE COUNT
+ */
+router.get("/users", auth, adminOnly, async (req, res) => {
+  try {
+    const result = await db.execute({
+      sql: `
+        SELECT 
+          u.id,
+          u.name,
+          u.email,
+          u.role,
+          COUNT(r.id) AS course_count
+        FROM users u
+        LEFT JOIN registrations r ON r.user_id = u.id
+        GROUP BY u.id
+        ORDER BY u.name
+      `,
+    });
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error("ADMIN USERS ERROR:", err);
+    res.status(500).json({ message: "Failed to load users" });
+  }
+});
 export default router;

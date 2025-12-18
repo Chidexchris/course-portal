@@ -29,34 +29,34 @@ function Courses() {
 
   // 2️⃣ Register for course
   const registerCourse = async (courseId) => {
-    try {
-      await axios.post(
-        "http://localhost:5000/api/registrations",
-        { courseId },
-        {
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
+  try {
+    await axios.post(
+      `http://localhost:5000/api/courses/${courseId}/register`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
         }
-      );
-      alert("Course registered. Waiting for approval.");
-    } catch (err) {
-      alert("You already registered for this course.");
-    }
-  };
+      }
+    );
+    alert("Course registered. Waiting for approval.");
+  } catch (err) {
+    alert(err.response?.data?.message || "Already registered");
+  }
+};
 
   useEffect(() => {
     fetchCourses();
   }, []);
   return (
     <>
-      <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+      <div className="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
         data-sidebar-position="fixed" data-header-position="fixed">
         <Sidebar />
 
-        <div class="body-wrapper">
+        <div className="body-wrapper">
           <Header />
-          <div class="body-wrapper-inner" >
+          <div className="body-wrapper-inner" >
             <div className="container-fluid">
               <h4>Available Courses</h4>
 
