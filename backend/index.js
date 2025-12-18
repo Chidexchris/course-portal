@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";  // For __dirname in ES modules
-import cors from "cors";
 
 import authRoutes from "./routes/auth.js";
 import courseRoutes from "./routes/courses.js";
