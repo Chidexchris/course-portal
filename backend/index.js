@@ -33,16 +33,7 @@ if (process.env.NODE_ENV === "production") {
   // Serve static files (JS, CSS, images, etc.)
   app.use(express.static(buildPath));
 
-  const fs = require('fs');
-console.log('Serving static files from:', buildPath);
-if (fs.existsSync(buildPath)) {
-  console.log('Build folder exists! Contents:', fs.readdirSync(buildPath));
-  if (fs.existsSync(path.join(buildPath, 'static'))) {
-    console.log('static/js folder:', fs.readdirSync(path.join(buildPath, 'static/js')).slice(0, 5));  // first few files
-  }
-} else {
-  console.log('ERROR: Build folder DOES NOT exist at', buildPath);
-}
+  
 
   // SPA fallback: Fixed for Express 5 – use "/*" instead of "*"
   app.get("/*", (req, res) => {
